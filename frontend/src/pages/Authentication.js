@@ -40,6 +40,15 @@ export async function action({request}){
     throw json({message: 'coudl not authenticate user  '}, {status: '500'})
    } 
 
+
+   const resData = await response.json();
+   const token = resData.token;       
+
+   localStorage.setItem('token', token);
+   const expirationDate = new Date();
+   expirationDate.setHours(expirationDate.getHours() + 1 );
+   localStorage.setItem('expiration', expirationDate)
+
    // manage token 
    return redirect('/')
 }

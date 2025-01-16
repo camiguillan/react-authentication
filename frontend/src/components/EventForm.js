@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
+import { getAuthToken } from '../util/auth';
 
 function EventForm({ method, event }) {
   const data = useActionData();
@@ -101,10 +102,12 @@ export async function action({ request, params }) {
     url = 'https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/events/' + eventId;
   }
 
+  const token = getAuthToken()
   const response = await fetch(url, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(eventData),
   });

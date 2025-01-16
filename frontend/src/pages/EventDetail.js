@@ -9,6 +9,7 @@ import {
 
 import EventItem from '../components/EventItem';
 import EventsList from '../components/EventsList';
+import { getAuthToken } from '../util/auth';
 
 function EventDetailPage() {
   const { event, events } = useRouteLoaderData('event-detail');
@@ -78,8 +79,13 @@ export async function loader({ request, params }) {
 
 export async function action({ params, request }) {
   const eventId = params.eventId;
+  const token = getAuthToken(); 
+
   const response = await fetch('https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/events/' + eventId, {
     method: request.method,
+    headers:{
+      'Authorization': 'Bearer ' + token
+    }
   });
 
   if (!response.ok) {
