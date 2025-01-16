@@ -94,11 +94,11 @@ export async function action({ request, params }) {
     description: data.get('description'),
   };
 
-  let url = 'http://localhost:8080/events';
+  let url = 'https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/events';
 
   if (method === 'PATCH') {
     const eventId = params.eventId;
-    url = 'http://localhost:8080/events/' + eventId;
+    url = 'https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/events/' + eventId;
   }
 
   const response = await fetch(url, {

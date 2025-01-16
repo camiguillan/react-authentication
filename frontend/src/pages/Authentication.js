@@ -23,7 +23,7 @@ export async function action({request}){
     password: data.get('password')
   };
 
-  const response = await fetch('https://shiny-memory-95vxqg6vg6vhrjq-8080.app.github.dev/' + mode, {
+  const response = await fetch('https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/' + mode, {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json'

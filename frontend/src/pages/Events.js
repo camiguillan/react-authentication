@@ -18,7 +18,7 @@ function EventsPage() {
 export default EventsPage;
 
 async function loadEvents() {
-  const response = await fetch('http://localhost:8080/events');
+  const response = await fetch('https://improved-dollop-xp649gr6gg5h99qx-8080.app.github.dev/events');
 
   if (!response.ok) {
     // return { isError: true, message: 'Could not fetch events.' };
